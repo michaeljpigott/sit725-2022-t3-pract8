@@ -1,3 +1,9 @@
+// connect to the socket
+let socket = io();
+socket.on("number", (msg) => {
+  console.log("Random number: " + msg);
+});
+
 //function to send get request to server to receive card data
 const getProjects = () => {
   $.get("/api/projects", (response) => {

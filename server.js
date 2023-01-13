@@ -1,16 +1,33 @@
-var express = require("express");
-var app = express();
-var cors = require("cors");
-var port = process.env.port || 3000;
-let client = require("./dbConnect");
-let projectRoutes = require("./routes/projectRoutes");
-let io = require("socket.io")(http); //connect the socket.io library to the app
+const path = require("path");
+const express = require("express");
+const socketio = require("socket.io");
+const port = 3000 || process.env.PORT;
+const app = express();
+let http = require("http").createServer(app);
+//const server = http.createServer(app);
+const io = socketio(http);
 
-app.use(express.static(__dirname + "/public"));
+//middlewares
+
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(
+  express.urlencoded({
+    extended: false,
+  })
+);
+app.use(express.static(__dirname + "/public"));
+
+var cors = require("cors");
+
+let dbConnect = require("./dbConnect");
+let projectRoutes = require("./routes/projectRoutes");
+let pageRoutes = require("./routes/pageRoutes");
+
 app.use(cors());
 app.use("/api/projects", projectRoutes);
+app.use("/", pageRoutes);
+
+let client = require("./dbConnect");
 
 //listener to look out for when a user connects to the socket
 io.on("connection", (socket) => {
@@ -51,6 +68,6 @@ app.get("/name/:firstName/:surname", function (req, res, next) {
   }
 });
 
-app.listen(port, () => {
-  console.log("App listening to: " + port);
+http.listen(port, () => {
+  console.log("listening on *:3000");
 });
