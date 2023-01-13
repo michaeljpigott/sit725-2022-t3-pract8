@@ -1,10 +1,10 @@
-require("dotenv").config();
+const dotenv = require("dotenv");
+dotenv.config();
 const MongoClient = require("mongodb").MongoClient; //connects MongoDb with the project
 
 //add database connection
 
-const uri =
-  "mongodb+srv://mpigott:Tue29112022@cluster0.5vufhgp.mongodb.net/?retryWrites=true&w=majority";
+const uri = process.env.MONGO_URI;
 const client = new MongoClient(uri, { useNewUrlParser: true });
 
 client.connect((err, db) => {
