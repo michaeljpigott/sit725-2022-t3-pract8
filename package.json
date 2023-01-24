@@ -1,7 +1,7 @@
 {
   "name": "sit725-2022-t3-prac6",
   "version": "1.0.0",
-  "description": "SIT725 Practical seven",
+  "description": "SIT725 Practical Eight",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/michaeljpigott/sit725-2022-t3-pract7"
+    "url": "git+https://github.com/michaeljpigott/sit725-2022-t3-pract8"
   },
   "keywords": [
     "Express",
@@ -18,9 +18,9 @@
   "author": "Michael Pigott",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/michaeljpigott/sit725-2022-t3-pract7/issues"
+    "url": "https://github.com/michaeljpigott/sit725-2022-t3-pract8/issues"
   },
-  "homepage": "https://github.com/michaeljpigott/sit725-2022-t3-pract7#readme",
+  "homepage": "https://github.com/michaeljpigott/sit725-2022-t3-pract8#readme",
   "dependencies": {
     "chai": "^4.3.7",
     "cors": "^2.8.5",
